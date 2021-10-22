@@ -1,6 +1,5 @@
 #!/usr/bin/env python  
 import roslib
-roslib.load_manifest('learning_tf')
 import rospy
 import math
 import tf
@@ -24,15 +23,19 @@ if __name__ == '__main__':
     listener = tf.TransformListener()
 
 #    fid_current = rospy.Subscriber("/fiducial_transforms", FiducialTransformArray, newTf)
-    fiducial_pos  = rospy.Publisher('fidpos', geometry_msgs.msg.Vector3Stamped,queue_size=1)
+    fiducial_pos  = rospy.Publisher('fidpos', Twist,queue_size=10)
 
-    rate = rospy.Rate(10.0)
+    rate = rospy.Rate(1)
     while not rospy.is_shutdown():
+        trans = None
+        rot = None
         try:
-            (trans,rot) = listener.lookupTransform('fid03', '/fid01', rospy.Time(0))
-        except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
-            continue
+            (trans,rot) = listener.lookupTransform('/fiducial_0', '/fiducial_1', rospy.Time(0))
+        except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException) as e:
+           print(e)
+           continue
 
-        print(trans,rot)
+        print(trans, "\n", rot, "\n\n")
+
 
         rate.sleep()

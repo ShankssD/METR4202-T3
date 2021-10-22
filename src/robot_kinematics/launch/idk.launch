@@ -1,3 +1,13 @@
 <launch>
-<node pkg="tf" type="static_transform_publisher" name="aruco2base_broadcaster" args="1 0 0 0 0 0 base base_aruco 100" />
+<node pkg="tf" type="static_transform_publisher" name="aruco2base_broadcaster" args="
+0.5418115402701849 
+-0.6249708786627882 
+4.519855168472781 
+0.2661694380759884
+-0.9548139061920224 
+0.10629368556187556 
+0.07865041122789866 
+base 
+base_aruco 
+100" />
 </launch>

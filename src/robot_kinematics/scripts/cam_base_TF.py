@@ -14,44 +14,35 @@ def get_rotation (quart_orientation):
 class tfTransformer:
     def __init__(self):
         current_base = 1
-        if (sys.argv > 1):
-            current_base = sys.argv[1]
-        rospy.init_node('listener', anonymous = True)
+        if (len(sys.argv) > 1):
+            current_base = int (sys.argv[1])
 
+        rospy.init_node('listener', anonymous = True)
+        
         self.tftl = tf.TransformListener("/fiducials_transforms")
         self.base_fiducial = current_base
-        
-        rospy.Subscriber("/fiducial_transforms", FiducialTransformArray, self.newTf)
+        print(self.base_fiducial)
+
+        rospy.Subscriber("/fiducial_transforms", FiducialTransformArray, self.publish_cam_TF)
         self.got_fid_base = False
         rospy.spin()
 
-    def newTf(self, msg):
-        image_t =  msg.header.stamp
-        
-        for m in msg.transforms:
-            current_fid_id = m.fiducial_id
-            if (current_fid_id == self.base_fiducial):
-               tran if(not self.got_fid_base):
-                    self.tf_fid_base = m.transform.translation
-                    print(self.tf_fid_base)
+    def publish_cam_TF(self, msg):
+        image_t = msg.header.stamp
+
+        if( self.got_fid_base ):
+            #publish tf
+            print(self.fiducial_transform)
+        else:
+            for m in msg.transforms:
+                fid_id = m.fiducial_id
+                print("current FIDID is: ", fid_id, "read ID id: ", self.base_fiducial)
+                if( fid_id == self.base_fiducial ):
+                    self.fiducial_transform = m
                     self.got_fid_base = True
-                    print("got Fiducial %d as the base"% self.base_fiducial)
-
-            elif(self.got_fid_base):
-                try:
-                    now = rospy.Time.now()
-                    past = now - rospy.Duration(5.0)
-                    
-                    tf = self.tftl.lookupTransform(self.tf_fid_base, current_fid_id,now )
-                    ct = tf[0]
-                    cr = tf[1]
-
-                    print("ID %d rel4" % current_fid_id,"norm: ", norm(ct),"\n translation vector: ", ct, "rotation vector: ", get_rotation(cr))
-                except Exception as e:
-                    print("Could not find transform with exception of %s" % e)
-            else: 
-                print("Not yet found base fiducial!")
-                return
+                    print(m)    
+                else: 
+                    print("Error: unable to detect correct fiducial mate u suk")
 
 
 if __name__ == '__main__':

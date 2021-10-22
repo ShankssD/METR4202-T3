@@ -28,7 +28,7 @@ ports:
       # SERVO LIST FOR THIS PORT
       - id: 1                   # (ID set in servo eeprom, must be unique on this port)
         joint_name: joint_1     # (MUST BE UNIQUE ACROSS ALL PORTS)
-        zero_pos: 512          # 0 rad servo position (in raw encoder count)
+        zero_pos: 205        # 0 rad servo position (in raw encoder count)
         min_pos: 0              # minimum servo position (in raw encoder count)
         max_pos: 1023           # maximum servo position, Note when MIN > MAX ROTATION IS REVERSED
 
