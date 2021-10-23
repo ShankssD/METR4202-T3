@@ -1,0 +1,1 @@
+/home/metr4202/catkin_ws/devel/.private/ax12a_interface/share/ax12a_interface/cmake/ax12a_interfaceConfig.cmake

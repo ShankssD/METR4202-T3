@@ -1,0 +1,8 @@
+prefix=/home/metr4202/catkin_ws/devel/.private/project_description
+
+Name: project_description
+Description: Description of project_description
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

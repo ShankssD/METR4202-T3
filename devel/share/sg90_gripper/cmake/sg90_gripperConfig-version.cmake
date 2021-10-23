@@ -1,0 +1,1 @@
+/home/metr4202/catkin_ws/devel/.private/sg90_gripper/share/sg90_gripper/cmake/sg90_gripperConfig-version.cmake

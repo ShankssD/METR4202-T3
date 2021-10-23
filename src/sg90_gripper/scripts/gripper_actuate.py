@@ -28,7 +28,7 @@ if __name__ == '__main__':
     #Publishes gripper state to gripper_state
     pub = rospy.Publisher('gripper_state',String,queue_size =10)
     #Subscribes to open_gripper to determine when to open or close
-    sub = rospy.Subscriber('open_gripper',String,destination_state_callback)
+    sub = rospy.Subscriber('actuate_gripper',String,destination_state_callback)
     #Allows for the node to stay open and call backs to be used
     rospy.spin()
 

@@ -1,0 +1,8 @@
+prefix=/home/metr4202/catkin_ws/install
+
+Name: ax12a_interface
+Description: Description of ax12a_interface
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

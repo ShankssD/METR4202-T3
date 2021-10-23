@@ -1,0 +1,8 @@
+prefix=/home/metr4202/catkin_ws/install
+
+Name: sg90_gripper
+Description: Description of sg90_gripper
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

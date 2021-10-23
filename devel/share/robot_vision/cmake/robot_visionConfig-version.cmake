@@ -1,0 +1,1 @@
+/home/metr4202/catkin_ws/devel/.private/robot_vision/share/robot_vision/cmake/robot_visionConfig-version.cmake

@@ -1,0 +1,8 @@
+prefix=/home/metr4202/catkin_ws/install
+
+Name: robot_kinematics
+Description: Description of robot_kinematics
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

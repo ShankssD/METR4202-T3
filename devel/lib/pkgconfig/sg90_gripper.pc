@@ -1,0 +1,1 @@
+/home/metr4202/catkin_ws/devel/.private/sg90_gripper/lib/pkgconfig/sg90_gripper.pc

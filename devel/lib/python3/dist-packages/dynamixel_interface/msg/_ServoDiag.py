@@ -1,0 +1,1 @@
+/home/metr4202/catkin_ws/devel/.private/dynamixel_interface/lib/python3/dist-packages/dynamixel_interface/msg/_ServoDiag.py

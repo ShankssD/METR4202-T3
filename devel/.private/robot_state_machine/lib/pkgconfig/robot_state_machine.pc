@@ -1,0 +1,8 @@
+prefix=/home/metr4202/catkin_ws/devel/.private/robot_state_machine
+
+Name: robot_state_machine
+Description: Description of robot_state_machine
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
