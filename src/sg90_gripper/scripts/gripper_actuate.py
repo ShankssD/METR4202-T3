@@ -7,7 +7,7 @@ from std_msgs.msg import String
 #Creates AngularServo class, on pin 23 specifying the desired max and min angles
 gripper = AngularServo(23,min_angle=-90,max_angle=90)
 #Variables for Opened/Closed state of gripper
-OPEN_ANGLE =-75
+OPEN_ANGLE =-65
 CLOSE_ANGLE= 0
 GRIPPER_STATE="OPEN"
 gripper.angle=OPEN_ANGLE

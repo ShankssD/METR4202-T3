@@ -15,7 +15,7 @@ from tf2_msgs.msg import TFMessage
 if __name__ == '__main__':
     rospy.init_node('fiducial_listener')
     
-    data_pub = rospy.Publisher('transformation',TFMessage,queue_size=10)
+    data_pub = rospy.Publisher('availableBlockTransforms',TFMessage,queue_size=10)
     tfBuffer = tf2.Buffer()
     listener = tf2.TransformListener(tfBuffer)
     
@@ -24,12 +24,11 @@ if __name__ == '__main__':
         transformation = None
         try:
             transformation = tfBuffer.lookup_transform('fiducial_3', 'fiducial_7', rospy.Time(0), rospy.Duration(3.0))
-            print(transformation)
+            print(type(transformation))
         except (tf2.LookupException, tf2.ConnectivityException, tf2.ExtrapolationException) as e:
            print(e)
            continue
 
-        rate.sleep()
         if(transformation):
             translation_data = transformation.transform.translation
             print(translation_data)
@@ -40,7 +39,8 @@ if __name__ == '__main__':
             for n in range(0,3):
                 rotation_data_deg[n] = rotation_data_rad[n]*180/np.pi #change to degrees()
             print("\n\n Transformation translation: \n", offset_translation_data, "\nRotation z:\n", rotation_data_deg[2])
-            
+            data = TFMessage()
+            data.transforms.append(transformation)
+            data_pub.publish(data)
 
-        # data_pub.publish(transformation)
         rate.sleep()

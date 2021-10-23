@@ -1,0 +1,5 @@
+st_machine
+/home/metr4202/catkin_ws/devel/.private/st_machine/cmake.lock /home/metr4202/catkin_ws/devel/./cmake.lock
+/home/metr4202/catkin_ws/devel/.private/st_machine/lib/pkgconfig/st_machine.pc /home/metr4202/catkin_ws/devel/lib/pkgconfig/st_machine.pc
+/home/metr4202/catkin_ws/devel/.private/st_machine/share/st_machine/cmake/st_machineConfig-version.cmake /home/metr4202/catkin_ws/devel/share/st_machine/cmake/st_machineConfig-version.cmake
+/home/metr4202/catkin_ws/devel/.private/st_machine/share/st_machine/cmake/st_machineConfig.cmake /home/metr4202/catkin_ws/devel/share/st_machine/cmake/st_machineConfig.cmake

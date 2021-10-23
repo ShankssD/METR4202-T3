@@ -1,0 +1,8 @@
+prefix=/home/metr4202/catkin_ws/install
+
+Name: st_machine
+Description: Description of st_machine
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
