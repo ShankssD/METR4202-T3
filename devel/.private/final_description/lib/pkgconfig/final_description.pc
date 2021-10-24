@@ -1,0 +1,8 @@
+prefix=/home/metr4202/catkin_ws/devel/.private/final_description
+
+Name: final_description
+Description: Description of final_description
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

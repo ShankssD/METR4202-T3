@@ -143,10 +143,6 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/robot_kinematics" TYPE FILE FILES "/home/metr4202/catkin_ws/src/robot_kinematics/package.xml")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/robot_kinematics" TYPE PROGRAM FILES "/home/metr4202/catkin_ws/build/robot_kinematics/catkin_generated/installspace/testlistener.py")
-endif()
-
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/metr4202/catkin_ws/build/robot_kinematics/gtest/cmake_install.cmake")

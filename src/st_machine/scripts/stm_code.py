@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+# Import all required.
 import rospy
 from smach import State,StateMachine
 import smach_ros
@@ -11,15 +12,22 @@ from math import isclose
 from geometry_msgs.msg import TransformStamped    
 
 class InitialPosition(State):
+    """
+    The initial position class takes in a state and executes functions based on this initial position.
+    """
     def __init__(self):
         State.__init__(self, outcomes=['atIP'])
 
         self.pub = rospy.Publisher("/newEffPosition", TFMessage, queue_size = 1)
         self.sub = rospy.Subscriber("/joint_states", JointState, self.atPos)
-        print("YESSSSSSS")
+        
         self.isIP = False
 
     def execute(self, userdata):
+        """
+        The execute function executes the initial position state which resets any current positions.
+        @param: userdata: 
+        """
         rospy.loginfo('Executing state InitialPosition')
         
         #STATE EXECUTION CODE
@@ -33,8 +41,8 @@ class InitialPosition(State):
         
 
         while(not self.isIP):
-    
             print("Waiting to reach Intialpos")
+
         print("zozozozoz")
         return 'atIP'
 

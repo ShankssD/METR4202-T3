@@ -1,0 +1,11 @@
+<launch>
+	<include file="$(find ximea_ros_cam)/launch/example_cam.launch" />
+	<include file="$(find ax12a_interface)/launch/dynamixel_interface_controller.launch" />
+	<include file="$(find aruco_detect)/launch/aruco_detect.launch" />
+	<node pkg="robot_kinematics" type="dropper.py" name="dropper" />
+	<node pkg="sg90_gripper" type="gripper_actuate.py" name="gripper_actuate" />
+	<node pkg="robot_kinematics" type="inverseKinematicsRotation.py" name="inverseKinematicsRotation" />
+	<node pkg="robot_kinematics" type="conveyorTrial.py" name="conveyor_state" />
+	<node pkg="robot_kinematics" type="blockTransformPub.py" name="BlockTransformationPublisher" />
+</launch>
+

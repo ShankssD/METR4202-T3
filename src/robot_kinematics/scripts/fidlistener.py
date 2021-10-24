@@ -13,17 +13,20 @@ from tf2_msgs.msg import TFMessage
 
 
 if __name__ == '__main__':
+    """
+    Two fiducial positions are compared and the position relative to a 'base' fiducial is returned
+    """
     rospy.init_node('fiducial_listener')
     
     data_pub = rospy.Publisher('availableBlockTransforms',TFMessage,queue_size=10)
     tfBuffer = tf2.Buffer()
     listener = tf2.TransformListener(tfBuffer)
     
-    rate = rospy.Rate(100.0)
+    rate = rospy.Rate(10.0)
     while not rospy.is_shutdown():
         transformation = None
         try:
-            transformation = tfBuffer.lookup_transform('fiducial_3', 'fiducial_7', rospy.Time(0), rospy.Duration(3.0))
+            transformation = tfBuffer.lookup_transform('fiducial_27', 'fiducial_7', rospy.Time(0), rospy.Duration(3.0))
             print(type(transformation))
         except (tf2.LookupException, tf2.ConnectivityException, tf2.ExtrapolationException) as e:
            print(e)

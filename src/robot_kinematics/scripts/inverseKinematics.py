@@ -8,6 +8,10 @@ from tf2_msgs.msg import TFMessage
 from sensor_msgs.msg import JointState 
 from std_msgs.msg import Bool
 
+"""
+Defining link lengths & initial gripper height
+"""
+
 L1 = 0.120 
 L2 = 0.095
 init_grip_z = 0.15
